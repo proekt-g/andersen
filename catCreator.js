@@ -1,13 +1,21 @@
+const catsArray = [];
 function createCat(old, name){ 
-    //this.catArray = [].push(name);
+    catsArray.push(old);
+    catsArray.sort((value1, value2) => {
+        return value1 < value2;
+    });
     return {
         meow: function(){ return "My name is " + name + "!"; },
         myAge: function(){
             if(old < 10) return "My age is " + old;
             return "I am too old...";
         },
-        myOrder: function(){ 
-            console.log(catArray);
+        myOrder: function(){
+            for(let value of catsArray){
+                if(value == old) {
+                    return `I am cat №${catsArray.indexOf(value) + 1} in family`;
+                }
+            }
         }
     }
 }
