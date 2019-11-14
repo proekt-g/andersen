@@ -1,8 +1,11 @@
 const catsArray = [];
 function createCat(old, name){ 
-    catsArray.push(old);
+    catsArray.push({
+        old: old,
+        name: name
+    });
     catsArray.sort((value1, value2) => {
-        return value1 < value2;
+        return value2 - value1;
     });
     return {
         meow: function(){ return "My name is " + name + "!"; },
@@ -12,10 +15,9 @@ function createCat(old, name){
         },
         myOrder: function(){
             for(let value of catsArray){
-                if(value == old) {
-                    return `I am cat №${catsArray.indexOf(value) + 1} in family`;
-                }
+                console.log(catsArray[value]);
             }
+            return `I am cat №${catsArray.indexOf( { old, name } ) + 1} in family`;
         }
     }
 }
@@ -25,6 +27,9 @@ const cat2 = createCat(7, 'Robert');
 const cat3 = createCat(11, 'Fedor');
 const cat4 = createCat(2, 'Doosya');
 const cat5 = createCat(6, 'Cooper');
+const cat6 = createCat(6, "Mur");
+//const cat7 = createCat(6, "Mur");
+//const cat8 = createCat(8, "Mur");
 
 console.log(cat1.meow()); // ('My name is Boris!')
 console.log(cat2.meow()); // ('My name is Robert!')
@@ -42,3 +47,4 @@ console.log(cat2.myOrder()); // ('I am cat №3 in family')
 console.log(cat3.myOrder()); // ('I am cat №1 in family')
 console.log(cat4.myOrder()); // ('I am cat №5 in family')
 console.log(cat5.myOrder()); // ('I am cat №4 in family')
+console.log(cat6.myOrder());
