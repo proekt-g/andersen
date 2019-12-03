@@ -3,7 +3,7 @@ function module(){
         constructor(element){
             this.anchor = element;
         }
-        onInit(){ }   
+        onInit() { }   
         onPropsChanges() { }  
         set props(value){
             this._props = value;
