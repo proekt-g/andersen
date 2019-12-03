@@ -21,8 +21,8 @@ function module(){
                 });
             }
         }
-        onInit(){ }
-        onPropsChanges(){ }
+        onInit() { }
+        onPropsChanges() { }
         set props(value){
             if(this._props === undefined) this.firstList = value; 
             this._props = value;
